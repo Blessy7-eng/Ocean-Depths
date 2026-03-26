@@ -28,7 +28,6 @@ export default function WaterRipple() {
       const x = Math.floor(e.clientX - rect.left);
       const y = Math.floor(e.clientY - rect.top);
       
-      // CIRCULAR IMPACT: Using distance check instead of a square grid
       const radius = 8;
       for (let j = -radius; j <= radius; j++) {
         for (let i = -radius; i <= radius; i++) {
@@ -52,11 +51,9 @@ export default function WaterRipple() {
            rippleData[i + width]) >> 1
         ) - nextRippleData[i];
         
-        // Damping shift: >> 5 or >> 4 makes waves disappear much faster
         nextRippleData[i] -= nextRippleData[i] >> 5; 
       }
 
-      // 2. Rendering: Natural "Refraction" look
       for (let i = 0; i < size; i++) {
         const dx = rippleData[i] - rippleData[i + 1];
         const dy = rippleData[i] - rippleData[i + width];
@@ -64,18 +61,15 @@ export default function WaterRipple() {
 
         const pixelIdx = i * 4;
         
-        // Color: Soft White-Blue Mix
         data[pixelIdx] = 210 + intensity;     // Red (Bright)
         data[pixelIdx + 1] = 235 + intensity; // Green (Teal)
         data[pixelIdx + 2] = 255;             // Blue (Strong)
         
-        // Alpha: Much lower base opacity for a subtle liquid feel
         data[pixelIdx + 3] = Math.min(120, 10 + intensity * 0.6);
       }
 
       ctx.putImageData(imageData, 0, 0);
 
-      // Buffer Swap
       let temp = rippleData;
       rippleData = nextRippleData;
       nextRippleData = temp;
@@ -108,9 +102,9 @@ export default function WaterRipple() {
       className="fixed inset-0 pointer-events-none"
       style={{
         zIndex: 100,
-        mixBlendMode: 'overlay', // Better for natural water distortion
-        opacity: 0.4,           // Subtle layer opacity
-        filter: 'blur(1.5px)',  // Blurs pixels into smooth liquid waves
+        mixBlendMode: 'overlay', 
+        opacity: 0.4,           
+        filter: 'blur(1.5px)',  
       }}
     />
   );
