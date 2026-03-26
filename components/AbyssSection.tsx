@@ -24,7 +24,7 @@ export default function AbyssSection({ sonarEnabled }: AbyssSectionProps) {
   return (
     <KineticScrollSection
       id="abyss"
-      backgroundTitle="" // We render a custom title below for the sparkle effect
+      backgroundTitle="" 
       backgroundColor="bg-black" 
       description="Covering 83% of the ocean floor, the Abyssopelagic zone reaches depths of 6,000 meters. A realm of constant near-freezing temperatures and crushing pressures."
     >
