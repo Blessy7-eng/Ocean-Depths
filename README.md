@@ -29,7 +29,6 @@ Built for the **Frontend Odyssey Hackathon**, this project explores the intersec
 | **Framework** | Next.js 14 (App Router) |
 | **Styling** | Tailwind CSS (Glassmorphism & Dynamic Gradients) |
 | **Animation** | GSAP (ScrollTrigger) & Framer Motion |
-| **Scroll Engine** | @studio-freight/lenis (Inertial Scrolling) |
 | **Design** | Figma |
 | **Deployment** | Vercel |
 
