@@ -3,7 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import BackgroundCreatures from '@/components/BackgroundCreatures';
-// ✨ IMPORT: Next.js Image Component
 import Image from 'next/image';
 
 interface TwilightSectionProps {
@@ -29,7 +28,6 @@ export default function TwilightSection({ sonarEnabled }: TwilightSectionProps) 
       id="twilight"
       className="relative min-h-screen py-24 px-6 flex items-center justify-center overflow-hidden bg-black"
     >
-      {/* ✨ BACKGROUND UPDATE: Deep Blue Gradient with Radial Light Center */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#1e40af] via-[#0f172a] to-black pointer-events-none">
         {/* The Central Light Shaft from image_26.png */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blue-500/10 rounded-full blur-[100px] shadow-[0_0_120px_#22d3ee20]" />
