@@ -59,10 +59,10 @@ To maintain 60FPS during the descent, I utilized **React's `useRef`** for animat
    ```bash
    npm run dev
    ```
-4.Build for production:
-  ```bash
-  npm run build
-
+4. Build for production:
+   ```bash
+   npm run build
+   ```
 
 💡 Design Philosophy
 "The ocean is a world of isolation and wonder."
