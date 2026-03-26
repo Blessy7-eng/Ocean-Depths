@@ -15,10 +15,8 @@ export default function NavigationBar({ sonarEnabled, onSonarToggle }: Navigatio
 
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Handle Sticky Header
       setIsSticky(window.scrollY > 100);
 
-      // 2. Handle Active Section (Scroll Spy)
       const sections = ['sunlight', 'twilight', 'midnight', 'trench'];
       const current = sections.find(id => {
         const el = document.getElementById(id);
