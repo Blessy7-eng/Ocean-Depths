@@ -50,8 +50,6 @@ export default function BackgroundCreatures({
   
   const [mountedCreatures, setMountedCreatures] = useState<any[]>([]);
 
-  // We use useMemo to prepare the data, but we only set it to state ONCE
-  // This avoids the "changed size between renders" error in Next.js
   useEffect(() => {
     const data = creatures.flatMap((config, configIdx) => {
       return Array.from({ length: config.count }).map((_, i) => ({
@@ -67,7 +65,6 @@ export default function BackgroundCreatures({
       }));
     });
     setMountedCreatures(data);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); 
 
   if (mountedCreatures.length === 0) return null;
