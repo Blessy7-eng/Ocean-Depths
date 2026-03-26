@@ -23,8 +23,6 @@ export default function MoanaTrail() {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      // ✨ FIX: We use clientX/Y but keep the container FIXED 
-      // so the particles stay relative to the screen, not the document height.
       addParticle(e.clientX, e.clientY);
     };
 
@@ -33,8 +31,6 @@ export default function MoanaTrail() {
   }, [addParticle]);
 
   return (
-    // ✨ FIX: Changed to 'fixed' to ensure sparkles follow the cursor 
-    // regardless of how far down the "Trench" you have scrolled.
     <div className="fixed inset-0 pointer-events-none z-[100] overflow-hidden">
       <AnimatePresence>
         {particles.map((p) => (
