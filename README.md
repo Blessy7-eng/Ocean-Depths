@@ -53,7 +53,7 @@ To maintain 60FPS during the descent, I utilized **React's `useRef`** for animat
    
 2. Install dependencies:
   ```bash
-  npm install```
+  npm install
    
 3. Run the development server:
    ```bash
@@ -62,7 +62,8 @@ To maintain 60FPS during the descent, I utilized **React's `useRef`** for animat
 4.Build for production:
   ```bash
   npm run build
-  
+
+
 💡 Design Philosophy
 "The ocean is a world of isolation and wonder."
 The UI was designed to feel like a high-tech research vessel—minimal, data-driven, and visually breathtaking.
