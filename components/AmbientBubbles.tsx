@@ -39,7 +39,6 @@ export default function AmbientBubbles() {
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
 
-    // Initialize ambient bubbles (fixed count: 15-20)
     const initializeBubbles = () => {
       bubblesRef.current = [];
       const bubbleCount = 18;
@@ -48,11 +47,10 @@ export default function AmbientBubbles() {
         const rand = Math.random();
         let size: number;
 
-        // Size distribution: mix of small and medium
         if (rand < 0.7) {
-          size = Math.random() * 4 + 3; // Small: 3-7px (70%)
+          size = Math.random() * 4 + 3; 
         } else {
-          size = Math.random() * 6 + 8; // Medium: 8-14px (30%)
+          size = Math.random() * 6 + 8;
         }
 
         const bubble: AmbientBubble = {
@@ -60,12 +58,12 @@ export default function AmbientBubbles() {
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
           size,
-          opacity: Math.random() * 0.3 + 0.1, // 0.1-0.4
-          floatSpeed: Math.random() * 0.5 + 0.3, // 0.3-0.8 px/frame
+          opacity: Math.random() * 0.3 + 0.1, 
+          floatSpeed: Math.random() * 0.5 + 0.3, 
           wobbleAmount: Math.random() * 1.5 + 0.5,
           wobbleSpeed: Math.random() * 0.03 + 0.01,
           wobbleOffset: Math.random() * Math.PI * 2,
-          blur: Math.random() > 0.5, // 50% of bubbles have blur
+          blur: Math.random() > 0.5, 
           startY: Math.random() * canvas.height,
         };
 
@@ -106,19 +104,17 @@ export default function AmbientBubbles() {
 
         if (distance < 100) {
           const angle = Math.atan2(dy, dx);
-          const force = (1 - distance / 100) * 0.3; // Gentle nudge
-          bubble.x += Math.cos(angle + Math.PI) * force; // Push away from cursor
+          const force = (1 - distance / 100) * 0.3; 
+          bubble.x += Math.cos(angle + Math.PI) * force; 
           bubble.y += Math.sin(angle + Math.PI) * force;
         }
 
-        // Draw bubble with optional blur
         if (bubble.blur) {
           ctx.filter = 'blur(1.5px)';
         } else {
           ctx.filter = 'none';
         }
 
-        // Outer glow - larger and more prominent
         const glowRadius = bubble.size * 2;
         const glowGradient = ctx.createRadialGradient(
           bubble.x,
@@ -140,7 +136,6 @@ export default function AmbientBubbles() {
           glowRadius * 2
         );
 
-        // Main bubble circle with border
         ctx.filter = 'none';
         ctx.beginPath();
         ctx.arc(bubble.x, bubble.y, bubble.size, 0, Math.PI * 2);
@@ -148,7 +143,6 @@ export default function AmbientBubbles() {
         ctx.lineWidth = 1.5;
         ctx.stroke();
 
-        // Fill bubble interior with gradient for 3D effect
         const bubbleGradient = ctx.createRadialGradient(
           bubble.x - bubble.size * 0.4,
           bubble.y - bubble.size * 0.4,
@@ -166,7 +160,6 @@ export default function AmbientBubbles() {
         ctx.arc(bubble.x, bubble.y, bubble.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Bright shine spot for realism
         const shineX = bubble.x - bubble.size * 0.35;
         const shineY = bubble.y - bubble.size * 0.35;
         const shineGradient = ctx.createRadialGradient(
