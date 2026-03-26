@@ -54,13 +54,14 @@ To maintain 60FPS during the descent, I utilized **React's `useRef`** for animat
 2. Install dependencies:
   ```bash
   npm install
+   ```
    
 3. Run the development server:
-   Bash
+   ```bash
    npm run dev
    
 4.Build for production:
-  Bash
+  ```bash
   npm run build
   
 💡 Design Philosophy
