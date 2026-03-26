@@ -56,7 +56,6 @@ export default function SunlightSection({ sonarEnabled }: SunlightSectionProps) 
             initial={{ opacity: 0, scale: 0.95 }}
             animate={isVisible ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
             transition={{ duration: 1 }}
-            // FIX: Explicit RGBA background and border to prevent oklab warnings
             style={{ 
               backgroundColor: 'rgba(255, 255, 255, 0.1)',
               borderColor: 'rgba(34, 211, 238, 0.3)' 
