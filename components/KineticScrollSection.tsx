@@ -53,10 +53,8 @@ export default function KineticScrollSection({
       const sectionProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
       const clampedProgress = Math.max(0, Math.min(1, sectionProgress));
 
-      // Horizontal offset - parallax effect (moves right to left) - more pronounced
       setHorizontalOffset(-clampedProgress * 300);
 
-      // Skew effect based on velocity - magnetic feel
       const maxSkew = 8;
       const velocitySkew = Math.min(maxSkew, velocity * 100);
       setSkew(velocitySkew);
