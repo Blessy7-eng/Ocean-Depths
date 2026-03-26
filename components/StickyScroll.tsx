@@ -20,11 +20,9 @@ export default function StickyScroll({ children, id }: StickyScrollProps) {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          // Calculate the scroll distance relative to the container
           const rect = entry.boundingClientRect;
           const scrollProgress = Math.max(0, (window.innerHeight - rect.top) / (window.innerHeight + rect.height));
 
-          // Apply transformations based on scroll position
           content.style.transform = `translateZ(0)`;
           content.style.willChange = 'transform';
         }
